@@ -11,7 +11,7 @@
 - byClickDelegate
 
 ## Install
-npm install testcafe-aurelia-selectors
+`npm install testcafe-aurelia-selectors`
 
 ## Usage
 
@@ -21,7 +21,9 @@ import aureliaSelectors from 'testcafe-aurelia-selectors';
 fixture `TestFixture`
     .page('http://todomvc.com/examples/aurelia/');
     
-test('add a new item', async t => {
-     
+test('add new item', async t => {
+    await t.typeText(aureliaSelector.byValueBind('newTodoTitle'), 'new item')
+        .pressKey('enter')
+        .expect(aureliaSelector.byShowBind('items.length').exists).ok();
 });    
 ```
