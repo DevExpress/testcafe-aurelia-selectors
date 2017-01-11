@@ -9,3 +9,19 @@
 - byFocusBind
 - byDbClickDelegate
 - byClickDelegate
+
+## Install
+npm install testcafe-aurelia-selectors
+
+## Usage
+
+```
+import aureliaSelectors from 'testcafe-aurelia-selectors';
+
+fixture `TestFixture`
+    .page('http://todomvc.com/examples/aurelia/');
+    
+test('add a new item', async t => {
+     
+});    
+```

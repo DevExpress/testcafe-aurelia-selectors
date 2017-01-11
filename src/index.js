@@ -1,5 +1,3 @@
-"use strict";
-
 import { Selector } from 'testcafe';
 
 class AureliaSelector {
