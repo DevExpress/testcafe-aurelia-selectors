@@ -1,0 +1,23 @@
+{
+  "name": "testcafe-aurelia-selectors",
+  "version": "0.0.1",
+  "description": "Testcafe selector extentions for aurelia",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/miherlosev/testcafe-aurelia-selectors"
+  },
+  "author": "Mikhail Losev <miherlosev@mail.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miherlosev/testcafe-aurelia-selectors/issues"
+  },
+  "homepage": "https://github.com/miherlosev/testcafe-aurelia-selectors",
+  "keywords": [
+    "aurelia",
+    "testcafe",
+    "testing"
+  ],
+  "dependencies": {
+    "testcafe": "^0.11.1"
+  }
+}
