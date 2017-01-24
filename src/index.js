@@ -2,7 +2,7 @@ import { Selector } from 'testcafe';
 
 class AureliaSelector {
     createSelector (bindingDescriptor, selectorInit) {
-        const elementSelector = `*[${bindingDescriptor.type}\\.${bindingDescriptor.value}="${bindingDescriptor.model}"]`;
+        const elementSelector = `*[${bindingDescriptor.type}\\.${bindingDescriptor.command}="${bindingDescriptor.expression}"]`;
 
         return selectorInit ? Selector(selectorInit).find(elementSelector)
             : Selector(elementSelector);
@@ -10,46 +10,46 @@ class AureliaSelector {
 
     /*valueBind*/
 
-    createBindSelector (type, model, selectorInit) {
+    createBindSelector (type, expression, selectorInit) {
         return this.createSelector({
-            type:  type,
-            value: 'bind',
-            model: model
+            type:       type,
+            command:    'bind',
+            expression: expression
         }, selectorInit);
     }
 
-    byValueBind (model, parentSelector) {
-        return this.createBindSelector('value', model, parentSelector);
+    byValueBind (expression, parentSelector) {
+        return this.createBindSelector('value', expression, parentSelector);
     }
 
-    byShowBind (model, parentSelector) {
-        return this.createBindSelector('show', model, parentSelector);
+    byShowBind (expression, parentSelector) {
+        return this.createBindSelector('show', expression, parentSelector);
     }
 
-    byCheckedBind (model, parentSelector) {
-        return this.createBindSelector('checked', model, parentSelector);
+    byCheckedBind (expression, parentSelector) {
+        return this.createBindSelector('checked', expression, parentSelector);
     }
 
-    byFocusBind (model, parentSelector) {
-        return this.createBindSelector('focus', model, parentSelector);
+    byFocusBind (expression, parentSelector) {
+        return this.createBindSelector('focus', expression, parentSelector);
     }
 
     /*eventDelegate*/
 
-    createDelegateSelector (event, model, selectorInit) {
+    createDelegateSelector (event, expression, selectorInit) {
         return this.createSelector({
-            type:  event,
-            value: 'delegate',
-            model: model
+            type:       event,
+            command:    'delegate',
+            expression: expression
         }, selectorInit);
     }
 
-    byDbClickDelegate (model, parentSelector) {
-        return this.createDelegateSelector('dblclick', model, parentSelector);
+    byDbClickDelegate (expression, parentSelector) {
+        return this.createDelegateSelector('dblclick', expression, parentSelector);
     }
 
-    byClickDelegate (model, parentSelector) {
-        return this.createDelegateSelector('click', model, parentSelector);
+    byClickDelegate (expression, parentSelector) {
+        return this.createDelegateSelector('click', expression, parentSelector);
     }
 }
 
