@@ -1,55 +1,55 @@
 import { Selector } from 'testcafe';
 
 class AureliaSelector {
-    createSelector (bindingDescriptor, selector) {
+    createSelector (bindingDescriptor, selectorInit) {
         const elementSelector = `*[${bindingDescriptor.type}\\.${bindingDescriptor.value}="${bindingDescriptor.model}"]`;
 
-        return selector ? Selector(selector).find(elementSelector)
+        return selectorInit ? Selector(selectorInit).find(elementSelector)
             : Selector(elementSelector);
     }
 
     /*valueBind*/
 
-    createBindSelector (type, model, selector) {
+    createBindSelector (type, model, selectorInit) {
         return this.createSelector({
             type:  type,
             value: 'bind',
             model: model
-        }, selector);
+        }, selectorInit);
     }
 
-    byValueBind (model, selector) {
-        return this.createBindSelector('value', model, selector);
+    byValueBind (model, parentSelector) {
+        return this.createBindSelector('value', model, parentSelector);
     }
 
-    byShowBind (model, selector) {
-        return this.createBindSelector('show', model, selector);
+    byShowBind (model, parentSelector) {
+        return this.createBindSelector('show', model, parentSelector);
     }
 
-    byCheckedBind (model, selector) {
-        return this.createBindSelector('checked', model, selector);
+    byCheckedBind (model, parentSelector) {
+        return this.createBindSelector('checked', model, parentSelector);
     }
 
-    byFocusBind (model, selector) {
-        return this.createBindSelector('focus', model, selector);
+    byFocusBind (model, parentSelector) {
+        return this.createBindSelector('focus', model, parentSelector);
     }
 
     /*eventDelegate*/
 
-    createDelegateSelector (event, model, selector) {
+    createDelegateSelector (event, model, selectorInit) {
         return this.createSelector({
             type:  event,
             value: 'delegate',
             model: model
-        }, selector);
+        }, selectorInit);
     }
 
-    byDbClickDelegate (model, selector) {
-        return this.createDelegateSelector('dblclick', model, selector);
+    byDbClickDelegate (model, parentSelector) {
+        return this.createDelegateSelector('dblclick', model, parentSelector);
     }
 
-    byClickDelegate (model, selector) {
-        return this.createDelegateSelector('click', model, selector);
+    byClickDelegate (model, parentSelector) {
+        return this.createDelegateSelector('click', model, parentSelector);
     }
 }
 
