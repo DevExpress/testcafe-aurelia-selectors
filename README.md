@@ -12,86 +12,87 @@ npm install testcafe-aurelia-selectors
 
 ### byValueBind
 
-Selects an element whose `value` attribute is bound to the specified model property.
+Selects an element whose `value` attribute is bound to the specified expression.
 
 ```
-byValueBind(model, selector)
+byValueBind(expression, parentSelector)
 ```
 
 Parameter                   | Description
 --------------------------- | -----------
-model                       | The model property to which the element's `value` attribute is bound.
-selector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
+expression                        | The JavaScript expression to which the element's `value` attribute is bound.
+parentSelector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
 
 ### byShowBind
 
-Selects an element whose `show` attribute is bound to the specified model property.
+Selects an element whose visibility is bound to the specified expression.
 
 ```
-byShowBind(model, selector)
+byShowBind(expression, parentSelector)
 ```
 
 Parameter                   | Description
 --------------------------- | -----------
-model                       | The model property to which the element's `show` attribute is bound.
-selector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
+expression                       | The JavaScript expression to which the element's visibility is bound.
+parentSelector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
 
 ### byCheckedBind
 
-Selects an element whose `checked` attribute is bound to the specified model property.
+Selects an element whose `checked` attribute is bound to the specified expression.
 
 ```
-byCheckedBind(model, selector)
+byCheckedBind(expression, parentSelector)
 ```
 
 Parameter                   | Description
 --------------------------- | -----------
-model                       | The model property to which the element's `checked` attribute is bound.
-selector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
+expression                       | The JavaScript expression to which the element's `checked` attribute is bound.
+parentSelector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
 
 ### byFocusBind
 
-Selects an element whose `focus` attribute is bound to the specified model property.
+Selects an element whose focus state is bound to the specified expression.
 
 ```
-byFocusBind(model, selector)
+byFocusBind(expression, parentSelector)
 ```
 
 Parameter                   | Description
 --------------------------- | -----------
-model                       | The model property to which the element's `checked` attribute is bound.
-selector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
+expression                       | The JavaScript expression to which the element's focus state is bound.
+parentSelector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
 
 ### byDbClickDelegate
 
 Selects an element whose `dblclick` event is handled by the specified expression.
 
 ```
-byDbClickDelegate(expression, selector)
+byDbClickDelegate(expression, parentSelector)
 ```
 
 Parameter                   | Description
 --------------------------- | -----------
 expression                  | The expression that handles the element's `dblclick` event.
-selector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
+parentSelector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
 
 ### byClickDelegate
 
 Selects an element whose `click` event is handled by the specified expression.
 
 ```
-byClickDelegate(expression, selector)
+byClickDelegate(expression, parentSelector)
 ```
 
 Parameter                   | Description
 --------------------------- | -----------
 expression                  | The expression that handles the element's `click` event.
-selector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
+parentSelector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
 
 ## Usage
 
 import aureliaSelectors from 'testcafe-aurelia-selectors';
 
+```js
 fixture `TestFixture`
     .page('http://todomvc.com/examples/aurelia/');
 
@@ -99,4 +100,5 @@ test('add new item', async t => {
     await t.typeText(aureliaSelector.byValueBind('newTodoTitle'), 'new item')
         .pressKey('enter')
         .expect(aureliaSelector.byShowBind('items.length').exists).ok();
-});    
+});
+```
