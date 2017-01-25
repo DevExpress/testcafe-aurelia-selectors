@@ -38,7 +38,7 @@ parentSelector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.git
 
 ### byCheckedBind
 
-Selects an element whose `checked` attribute is bound to the specified expression.
+Selects an element whose checked state is bound to the specified expression (for checkbox and radio input elements).
 
 ```
 byCheckedBind(expression, parentSelector)
@@ -46,7 +46,7 @@ byCheckedBind(expression, parentSelector)
 
 Parameter                   | Description
 --------------------------- | -----------
-expression                       | The JavaScript expression to which the element's `checked` attribute is bound.
+expression                       | The JavaScript expression to which the element's checked state is bound.
 parentSelector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors.html). If specified, TestCafe will search for the target element among the descendants of the element identified by this selector.
 
 ### byFocusBind
