@@ -90,9 +90,9 @@ parentSelector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.git
 
 ## Usage
 
+```js
 import aureliaSelectors from 'testcafe-aurelia-selectors';
 
-```js
 fixture `TestFixture`
     .page('http://todomvc.com/examples/aurelia/');
 
