@@ -27,6 +27,11 @@
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
     "gulp-eslint": "^1.1.1",
+    "publish-please": "^2.2.0",
     "testcafe": "^0.11.1"
+  },
+  "scripts": {
+    "publish-please": "publish-please",
+    "prepublish": "publish-please guard"
   }
 }
