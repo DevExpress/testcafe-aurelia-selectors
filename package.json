@@ -1,6 +1,6 @@
 {
   "name": "testcafe-aurelia-selectors",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Testcafe selector extentions for aurelia",
   "repository": {
     "type": "git",
