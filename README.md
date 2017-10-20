@@ -91,14 +91,14 @@ parentSelector&#160;*(optional)*  | A TestCafe [selector](https://devexpress.git
 ## Usage
 
 ```js
-import aureliaSelectors from 'testcafe-aurelia-selectors';
+import AureliaSelector from 'testcafe-aurelia-selectors';
 
 fixture `TestFixture`
     .page('http://todomvc.com/examples/aurelia/');
 
 test('add new item', async t => {
-    await t.typeText(aureliaSelector.byValueBind('newTodoTitle'), 'new item')
+    await t.typeText(AureliaSelector.byValueBind('newTodoTitle'), 'new item')
         .pressKey('enter')
-        .expect(aureliaSelector.byShowBind('items.length').exists).ok();
+        .expect(AureliaSelector.byShowBind('items.length').exists).ok();
 });
 ```
